@@ -29,6 +29,7 @@
   font-family: Arial;
   font-size: 16px;
   padding-top: .3em;
+  margin-left: 15px;
 }
 
 .nav-item {
@@ -39,6 +40,10 @@
   background-color: #005480;
 }
 
+#bottom-nav {
+  background-color: #F5F5F5;
+}
+
 #top-nav a {
   font-weight: bold;
   color: #ffffff;
@@ -46,8 +51,20 @@
 
 h1 {
   text-align: left;
+  margin-left: 30px;
 }
 
 #event {
   box-shadow: 0 -2px 2px -2px #999;
+  background-color: #ffffff;
+}
+
+#event-image {
+  object-fit: cover;
+  max-height: 300px;
+  width: 900px;
+}
+
+#mid {
+  background-color: #F5F5F5;
 }

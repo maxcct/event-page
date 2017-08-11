@@ -3,26 +3,26 @@
 		{
 			"id": 0,
 			"name": "SpeedRoomMating Brooklyn @ Matt Torrey's",
-			"imageSRC": "./img/bar-photo.jpg",
+			"image": "bar-photo.jpg",
 			"imageAlt": "Bar"
 		},
 		{
 			"id": 1,
 			"name": "Untitled",
 			"image": "None",
-			"image-alt": "N/A"
+			"imageAlt": "N/A"
 		},
 		{
 			"id": 2,
 			"name": "Untitled",
 			"image": "None",
-			"image-alt": "N/A"
+			"imageAlt": "N/A"
 		},
 		{
 			"id": 3,
 			"name": "Untitled",
 			"image": "None",
-			"image-alt": "N/A"
+			"imageAlt": "N/A"
 		}
 	]
 }

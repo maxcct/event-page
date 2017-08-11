@@ -3,6 +3,8 @@ import logo from './img/logo.png';
 import './App.css';
 import data from './json/data.json';
 
+const imageFolderURL = "https://raw.githubusercontent.com/maxcct/event-page/master/src/img/"
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -30,22 +32,29 @@ class App extends Component {
 class Event extends Component {
 constructor(props) {
     super(props);
+    this.image = imageFolderURL + this.props.event.image;
   }
 
   render() {
-    console.log(this.props.event.imageSRC);
+    console.log(this.image);
     return (
-      <div className="row">
-          <div className="col-md-2"></div>
-          <div className="col-md-8" id="event">
+      <div className="row" id="mid">
+          <div className="col-md-3"></div>
+          <div className="col-md-6" id="event">
             <div className="row">
               <h1>{this.props.event.name}</h1>
             </div>
             <div className="row">
-              <img src="" alt={this.props.event.imageAlt}></img>
+              <img src={this.image}
+                   alt={this.props.event.imageAlt}
+                   id="event-image">
+              </img>
+            </div>
+            <div className="row">
+              <br></br>
             </div>
           </div>
-          <div className="col-md-2"></div>
+          <div className="col-md-3"></div>
       </div>
       );
   }
@@ -71,27 +80,27 @@ class Header extends Component {
     return (
       <div>
         <div className="row">
-          <div className="col-md-2"></div>
+          <div className="col-md-3"></div>
           <div className="col-md-2">
             <img src={logo} alt="logo"></img>
           </div>
-          <div className="col-md-8"></div>
+          <div className="col-md-7"></div>
         </div>
         <div className="row nav">
           <div className="row" id="top-nav">
-            <div className="col-md-2"></div>
-            <div className="col-md-8 nav-bar">
+            <div className="col-md-3"></div>
+            <div className="col-md-6 nav-bar">
               <a className="nav-item">Home</a>
               <a className="nav-item">Events</a>
             </div>
-            <div className="col-md-2"></div>
+            <div className="col-md-3"></div>
           </div>
-          <div className="row">
-            <div className="col-md-2"></div>
-            <div className="col-md-8 nav-bar">
+          <div className="row" id="bottom-nav">
+            <div className="col-md-3"></div>
+            <div className="col-md-6 nav-bar">
               {this.events}
             </div>
-            <div className="col-md-2"></div>
+            <div className="col-md-3"></div>
           </div>
         </div>
       </div>
