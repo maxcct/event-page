@@ -22,3 +22,32 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.nav-bar {
+  height: 2em;
+  text-align: left;
+  font-family: Arial;
+  font-size: 16px;
+  padding-top: .3em;
+}
+
+.nav-item {
+  margin-right: 1em;
+}
+
+#top-nav {
+  background-color: #005480;
+}
+
+#top-nav a {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+h1 {
+  text-align: left;
+}
+
+#event {
+  box-shadow: 0 -2px 2px -2px #999;
+}
