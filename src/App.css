@@ -40,12 +40,7 @@ h1 {
   box-shadow: 0 -2px 2px -2px #999;
   background-color: #ffffff;
   padding: 20px 30px 30px 30px;
-}
-
-#event-image {
-  object-fit: cover;
-  max-height: 300px;
-  width: 100%;
+  width: 1000px;
 }
 
 .event-row {
@@ -59,6 +54,12 @@ h1 {
 
 #map-label {
   margin-bottom: 0;
+}
+
+#image-row {
+  background-position: -10px -226px;
+  padding-bottom: 20px;
+  padding-left: 80px;
 }
 
 #mid {

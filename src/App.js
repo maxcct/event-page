@@ -24,8 +24,8 @@ class Map extends React.Component {
   
   render() {
     const mapStyle = {
-      width: 438,
-      height: 250
+      width: this.props.width,
+      height: this.props.height
     };
     
     return (
@@ -65,10 +65,13 @@ class Event extends Component {
 constructor(props) {
 	super(props);
 	this.event = this.props.event;
-	this.image = imageFolderURL + this.event.image;
+	this.image = {
+		backgroundImage: "url(" + imageFolderURL + this.event.image + ")"
+	};
   }
 
   render() {
+
 	return (
 	  <div className="row" id="mid">
 		  <div className="col-md-3"></div>
@@ -76,11 +79,10 @@ constructor(props) {
 							<div className="row event-row">
 							  <h1>{this.event.name}</h1>
 							</div>
-							<div className="row event-row">
-							  <img src={this.image}
-								   alt={this.event.imageAlt}
-								   id="event-image">
-							  </img>
+							<div className="row event-row" id="image-row" style={this.image}>
+								<Map lat={this.event.lat}
+									 lng={this.event.lng}
+									 width={300} height={280}/>
 							</div>
 							<div className="row">
 								  <div className="col-md-6" id="booking-col">
@@ -107,7 +109,8 @@ constructor(props) {
 									  	<p id="map-label"><strong>Map</strong></p>
 								  	</div>
 									<Map lat={this.event.lat}
-									 	 lng={this.event.lng}/>
+									 	 lng={this.event.lng}
+									 	 width={428} height={250}/>
 								  </div>
 							</div>
 		  </div>
