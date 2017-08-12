@@ -71,7 +71,6 @@ constructor(props) {
   }
 
   render() {
-
 	return (
 	  <div className="row" id="mid">
 		  <div className="col-md-3"></div>
@@ -86,7 +85,7 @@ constructor(props) {
 							</div>
 							<div className="row">
 								  <div className="col-md-6" id="booking-col">
-								  	<Booking />
+								  	<Booking event={this.event}/>
 								  </div>
 								  <div className="col-md-6">
 								  	<div id="event-text">
@@ -126,7 +125,9 @@ class Booking extends Component {
 		this.state = {
 			room: undefined,
 			nameInput: "Please enter your name",
-			emailInput: "Please enter your email address"
+			emailInput: "Please enter your email address",
+			needRoomAvailable: this.props.event.needRoomAvailable,
+			haveRoomAvailable: this.props.event.haveRoomAvailable
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -145,8 +146,21 @@ class Booking extends Component {
 	handleSubmit(e) {
 		let response = this.validateSubmission();
 		if (!response) {
+			let room = this.state.room;
 			let hope;
-			this.state.room === "need" ? hope = "room!" : hope = "flatmate!"
+			if (room === "need") {
+				let previousTotal = this.state.needRoomAvailable;
+				this.setState({
+					needRoomAvailable: previousTotal - 1
+				});
+				hope = "room!";
+			} else {
+				let previousTotal = this.state.haveRoomAvailable;
+				this.setState({
+					haveRoomAvailable: previousTotal - 1
+				});
+				hope = "flatmate!";
+			}
 			response = "Thanks, " + this.state.nameInput + "! We hope you find a " + hope;		
 		};
 		alert(response);
@@ -173,20 +187,41 @@ class Booking extends Component {
 			<div id="booking">
 				<h4>Reserve your place now</h4>
 				<form onSubmit={this.handleSubmit}>
-					<p className="table-row">
-						<input onChange={this.handleChange} className="table-cell" type="radio" name="room" id="needRoom" value="need"></input>
-						<label className="table-cell" htmlFor="needRoom">I need a room</label>
-					</p>
-					<p className="table-row">
-						<input onChange={this.handleChange} className="table-cell" type="radio" name="room" id="haveRoom" value="have"></input>
-						<label className="table-cell" htmlFor="haveRoom">I have a room</label>
-					</p>
+					<div className="table-row">
+						<p className="table-cell">
+							<input onChange={this.handleChange} type="radio" name="room" id="needRoom" value="need"></input>
+							<label htmlFor="needRoom">I need a room</label>
+						</p>
+						<p className="table-cell">
+							{this.state.needRoomAvailable ? "Places available" : "Sorry, there are no places left"}
+						</p>
+					</div>
+					<div className="table-row">
+						<p className="table-cell">
+							<input onChange={this.handleChange} type="radio" name="room" id="haveRoom" value="have"></input>
+							<label htmlFor="haveRoom">I have a room</label>
+						</p>
+						{this.state.haveRoomAvailable &&
+							<p className="table-cell">
+								Places available
+							</p>
+						}
+					</div>
 					<hr></hr>
 					<p><strong>Name</strong></p>
-					<input onChange={this.handleChange} type="text" id="nameInput" value={this.state.nameInput}></input>
+					<p>
+						<input onChange={this.handleChange} type="text" id="nameInput" value={this.state.nameInput}></input>
+					</p>
 					<p><strong>Email</strong></p>
-					<input onChange={this.handleChange} type="text" id="emailInput" value={this.state.emailInput}></input>
-					<br></br>
+					<p>
+						<input onChange={this.handleChange} type="text" id="emailInput" value={this.state.emailInput}></input>
+					</p>
+					<p>
+						We won't give your email address to anyone else.
+						<br></br>
+						See our <a>Privacy Policy</a> for more details.
+					</p>
+					<hr></hr>
 					<input type="submit" value="Book"></input>
 
 

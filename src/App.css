@@ -89,6 +89,20 @@ form {
   min-height: 570px;
 }
 
+input[type=text] {
+  width: 110%;
+}
+
 input[type=submit] {
   float: left;
+  background-color: orange;
+  border: none;
+  border-radius: 5px;
+  padding: 4px 10px;
+  color: white;
+  font-weight: bold;
+}
+
+hr {
+  width: 135%;
 }
