@@ -19,7 +19,7 @@ body {
   margin-right: 1em;
 }
 
-#top-nav {
+#top-nav, #footer {
   background-color: #005480;
 }
 
@@ -64,11 +64,15 @@ h4 {
 
 #event-text {
   margin: 35px 50px 0 0;
-  padding-left: 20px;
+  padding-left: 15px;
 }
 
 #map-label {
   margin-bottom: 0;
+}
+
+#big-map {
+  margin-left: -5px;
 }
 
 #image-row {
@@ -82,7 +86,7 @@ h4 {
 }
 
 #booking {
-  min-height: 540px;
+  min-height: 615px;
   border: #E5E5E5 solid 1px;
   padding: 20px;
   margin-top: 20px;
@@ -101,7 +105,7 @@ form {
 }
 
 #booking-col {
-  min-height: 570px;
+  min-height: 100%;
 }
 
 .text-input-label {
@@ -147,4 +151,8 @@ span {
   margin-left: 30px;
   color: #14C7F5;
   font-weight: bold;
+}
+
+#footer {
+  height: 180px;
 }

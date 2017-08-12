@@ -72,48 +72,53 @@ constructor(props) {
 
   render() {
 	return (
-	  <div className="row" id="mid">
-		  <div className="col-md-3"></div>
-		  <div className="col-md-6" id="event">
-							<div className="row event-row">
-							  <h1>{this.event.name}</h1>
-							</div>
-							<div className="row event-row" id="image-row" style={this.image}>
-								<Map lat={this.event.lat}
-									 lng={this.event.lng}
-									 width={300} height={280}/>
-							</div>
-							<div className="row">
-								  <div className="col-md-6" id="booking-col">
-								  	<Booking event={this.event}/>
-								  </div>
-								  <div className="col-md-6">
-								  	<div id="event-text">
-									  	<p>
-									  		<strong>Who is this event for?</strong><br></br>
-									  		{this.event.suitability}
-									  	</p>
-									  	<p>
-									  		<strong>What areas does this event cover?</strong><br></br>
-									  		{this.event.areas}
-									  	</p>
-									  	<p>
-									  		<strong>Venue directions</strong><br></br>
-									  		{this.event.directions}
-									  	</p>
-									  	<p>
-									  		<strong>Nearest subway</strong><br></br>
-									  		{this.event.subway}
-									  	</p>
-									  	<p id="map-label"><strong>Map</strong></p>
-								  	</div>
+		<div>
+			<div className="row" id="mid">
+			  <div className="col-md-3"></div>
+			  <div className="col-md-6" id="event">
+								<div className="row event-row">
+								  <h1>{this.event.name}</h1>
+								</div>
+								<div className="row event-row" id="image-row" style={this.image}>
 									<Map lat={this.event.lat}
-									 	 lng={this.event.lng}
-									 	 width={428} height={250}/>
-								  </div>
-							</div>
-		  </div>
-		  <div className="col-md-3"></div>
+										 lng={this.event.lng}
+										 width={300} height={280}/>
+								</div>
+								<div className="row">
+									  <div className="col-md-6" id="booking-col">
+									  	<Booking event={this.event}/>
+									  </div>
+									  <div className="col-md-6">
+									  	<div id="event-text">
+										  	<p>
+										  		<strong>Who is this event for?</strong><br></br>
+										  		{this.event.suitability}
+										  	</p>
+										  	<p>
+										  		<strong>What areas does this event cover?</strong><br></br>
+										  		{this.event.areas}
+										  	</p>
+										  	<p>
+										  		<strong>Venue directions</strong><br></br>
+										  		{this.event.directions}
+										  	</p>
+										  	<p>
+										  		<strong>Nearest subway</strong><br></br>
+										  		{this.event.subway}
+										  	</p>
+										  	<p id="map-label"><strong>Map</strong></p>
+									  	</div>
+									  	<div id="big-map">
+											<Map lat={this.event.lat}
+											 	 lng={this.event.lng}
+											 	 width={460} height={300}/>
+										</div>
+									  </div>
+								</div>
+			  </div>
+			  <div className="col-md-3"></div>
+			</div>
+			<div className="row" id="footer"></div>
 	  </div>
 	  );
   }
