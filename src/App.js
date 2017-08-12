@@ -5,44 +5,36 @@ import data from './json/data.json';
 
 const imageFolderURL = "https://raw.githubusercontent.com/maxcct/event-page/master/src/img/";
 
-const ARC_DE_TRIOMPHE_POSITION = {
-  lat: 48.873947,
-  lng: 2.295038
-};
-
-const EIFFEL_TOWER_POSITION = {
-  lat: 48.858608,
-  lng: 2.294471
-};
-
 class Map extends React.Component {
   constructor() {
     super();
-    this.panToArcDeTriomphe = this.panToArcDeTriomphe.bind(this);
   }
   
   componentDidMount() {
+  	const position = {
+	  lat: this.props.lat,
+	  lng: this.props.lng
+	};
     this.map = new window.google.maps.Map(this.refs.map, {
-      center: EIFFEL_TOWER_POSITION,
+      center: position,
       zoom: 16
     });
-  }
-  
-  panToArcDeTriomphe() {
-    console.log(this)
-    this.map.panTo(ARC_DE_TRIOMPHE_POSITION);
+    this.marker = new window.google.maps.Marker({
+        position: position,
+        map: this.map,
+    });
+
   }
   
   render() {
     const mapStyle = {
-      width: 500,
-      height: 300,
+      width: 400,
+      height: 250,
       border: '1px solid black'
     };
     
     return (
       <div>
-        <button onClick={this.panToArcDeTriomphe}>Go to Arc De Triomphe</button>
         <div ref="map" style={mapStyle}>I should be a map!</div>
       </div>
     );
@@ -77,7 +69,9 @@ class App extends Component {
 class Event extends Component {
 constructor(props) {
 	super(props);
-	this.image = imageFolderURL + this.props.event.image;
+	this.event = this.props.event;
+	this.image = imageFolderURL + this.event.image;
+
   }
 
   render() {
@@ -87,19 +81,40 @@ constructor(props) {
 		  <div className="col-md-3"></div>
 		  <div className="col-md-6" id="event">
 			<div className="row">
-			  <h1>{this.props.event.name}</h1>
+			  <h1>{this.event.name}</h1>
 			</div>
 			<div className="row">
 			  <img src={this.image}
-				   alt={this.props.event.imageAlt}
+				   alt={this.event.imageAlt}
 				   id="event-image">
 			  </img>
 			</div>
 			<div className="row">
-			  <div className="col-md-3"></div>
-			  <div className="col-md-3"></div>
-			  <div className="col-md-3">
-				<Map />
+			  <div className="col-md-6">
+			  	<Booking />
+			  </div>
+			  <div className="col-md-6">
+			  	<div id="event-text">
+				  	<p>
+				  		<strong>Who is this event for?</strong><br></br>
+				  		{this.event.suitability}
+				  	</p>
+				  	<p>
+				  		<strong>What areas does this event cover?</strong><br></br>
+				  		{this.event.areas}
+				  	</p>
+				  	<p>
+				  		<strong>Venue directions</strong><br></br>
+				  		{this.event.directions}
+				  	</p>
+				  	<p>
+				  		<strong>Nearest subway</strong><br></br>
+				  		{this.event.subway}
+				  	</p>
+				  	<p><strong>Map</strong></p>
+			  	</div>
+				<Map lat={this.event.lat}
+				 	 lng={this.event.lng}/>
 			  </div>
 			  <div className="col-md-3"></div>
 			</div>
@@ -108,6 +123,16 @@ constructor(props) {
 	  </div>
 	  );
   }
+}
+
+class Booking extends Component {
+	render() {
+		return (
+			<div id="booking">
+				<h4>Reserve your place now</h4>
+			</div>
+		)
+	}
 }
 
 class Header extends Component {

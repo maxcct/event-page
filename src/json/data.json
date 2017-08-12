@@ -4,7 +4,15 @@
 			"id": 0,
 			"name": "SpeedRoomMating Brooklyn @ Matt Torrey's",
 			"image": "bar-photo.jpg",
-			"imageAlt": "Bar"
+			"imageAlt": "Bar",
+			"lat": 40.7134727,
+			"lng": -73.9415352,
+			"directions": "L train to Grand Avenue. Walk 2 blocks north on Bushwick Avenue, bar is on the left on the corner of Bushwick and Ainslie.",
+			"subway": "Grand Street (L train)",
+			"suitability": "This event is suitable for anyone looking for a room or roommate in New York.",
+			"areas": "Brooklyn, Williamsburg, Queens, Jamaica, Astoria, Bronx, Long Island.",
+			"date": "Tuesday 27th June",
+			"time": "7:00PM – 9:00PM"
 		},
 		{
 			"id": 1,
