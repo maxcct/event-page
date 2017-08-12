@@ -2,27 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 .nav-bar {
   height: 2em;
   text-align: left;
@@ -49,29 +28,37 @@
   color: #ffffff;
 }
 
-h1 {
+h1, h4, p {
   text-align: left;
-  margin-left: 30px;
 }
 
-h4, p {
-  text-align: left;
+h1 {
+  margin: 0 0 10px 0;
 }
 
 #event {
   box-shadow: 0 -2px 2px -2px #999;
   background-color: #ffffff;
+  padding: 20px 30px 30px 30px;
 }
 
 #event-image {
   object-fit: cover;
   max-height: 300px;
   width: 100%;
-  margin: 0 30px;
+}
+
+.event-row {
+  margin: 0;
 }
 
 #event-text {
-  margin-left: 20px;
+  margin-top: 35px;
+  padding-left: 20px;
+}
+
+#map-label {
+  margin-bottom: 0;
 }
 
 #mid {
@@ -81,5 +68,5 @@ h4, p {
 #booking {
   border: #E5E5E5 solid 1px;
   padding-left: 20px;
-  margin: 20px 0 30px 20px;
+  margin-top: 20px;
 }
