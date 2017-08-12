@@ -1,7 +1,11 @@
-.App {
-  text-align: center;
+body {
+  margin-top: 20px;
+  color: #5E5E5E;
 }
 
+#nav {
+  margin-top: 10px;
+}
 .nav-bar {
   height: 2em;
   text-align: left;
@@ -33,7 +37,18 @@ h1, h4, p {
 }
 
 h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  color: #003D5D;
   margin: 0 0 10px 0;
+}
+
+h4 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #003D5D;
+  margin-top: 0;
 }
 
 #event {
@@ -48,7 +63,7 @@ h1 {
 }
 
 #event-text {
-  margin-top: 35px;
+  margin: 35px 50px 0 0;
   padding-left: 20px;
 }
 
@@ -69,7 +84,7 @@ h1 {
 #booking {
   min-height: 540px;
   border: #E5E5E5 solid 1px;
-  padding-left: 20px;
+  padding: 20px;
   margin-top: 20px;
 }
 
@@ -89,8 +104,13 @@ form {
   min-height: 570px;
 }
 
+.text-input-label {
+  margin-bottom: 5px;
+}
+
 input[type=text] {
-  width: 110%;
+  width: 85%;
+  padding-left: 10px;
 }
 
 input[type=submit] {
@@ -101,8 +121,30 @@ input[type=submit] {
   padding: 4px 10px;
   color: white;
   font-weight: bold;
+  margin-bottom: 30px;
+}
+
+#nameInput {
+  margin-bottom: 10px;
+}
+
+#bring-id {
+  clear: left;
+  font-weight: bold;
+  margin-right: 20px;
 }
 
 hr {
-  width: 135%;
+  width: 100%;
+}
+
+label {
+  margin-left: 10px;
+  font-weight: normal;
+}
+
+span {
+  margin-left: 30px;
+  color: #14C7F5;
+  font-weight: bold;
 }

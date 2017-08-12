@@ -190,29 +190,25 @@ class Booking extends Component {
 					<div className="table-row">
 						<p className="table-cell">
 							<input onChange={this.handleChange} type="radio" name="room" id="needRoom" value="need"></input>
-							<label htmlFor="needRoom">I need a room</label>
-						</p>
-						<p className="table-cell">
-							{this.state.needRoomAvailable ? "Places available" : "Sorry, there are no places left"}
+							<label htmlFor="needRoom">I need a room
+								<span>{this.state.needRoomAvailable ? "Places available" : "Sorry, there are no places left"}</span>
+							</label>
 						</p>
 					</div>
 					<div className="table-row">
 						<p className="table-cell">
 							<input onChange={this.handleChange} type="radio" name="room" id="haveRoom" value="have"></input>
-							<label htmlFor="haveRoom">I have a room</label>
+							<label htmlFor="haveRoom">I have a room
+								<span>{this.state.haveRoomAvailable ? "Places available" : "Sorry, there are no places left"}</span>
+							</label>
 						</p>
-						{this.state.haveRoomAvailable &&
-							<p className="table-cell">
-								Places available
-							</p>
-						}
 					</div>
 					<hr></hr>
-					<p><strong>Name</strong></p>
+					<p className="text-input-label"><strong>Name</strong></p>
 					<p>
 						<input onChange={this.handleChange} type="text" id="nameInput" value={this.state.nameInput}></input>
 					</p>
-					<p><strong>Email</strong></p>
+					<p className="text-input-label"><strong>Email</strong></p>
 					<p>
 						<input onChange={this.handleChange} type="text" id="emailInput" value={this.state.emailInput}></input>
 					</p>
@@ -223,8 +219,7 @@ class Booking extends Component {
 					</p>
 					<hr></hr>
 					<input type="submit" value="Book"></input>
-
-
+					<p id="bring-id">All our events are in licensed venues, so bring some ID just in case you're lucky enough to be asked your age!</p>
 				</form>
 			</div>
 		)
@@ -257,7 +252,7 @@ class Header extends Component {
 		  </div>
 		  <div className="col-md-7"></div>
 		</div>
-		<div className="row nav">
+		<div className="row" id="nav">
 		  <div className="row" id="top-nav">
 			<div className="col-md-3"></div>
 			<div className="col-md-6 nav-bar">
