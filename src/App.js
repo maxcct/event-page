@@ -66,7 +66,6 @@ constructor(props) {
 	super(props);
 	this.event = this.props.event;
 	this.image = imageFolderURL + this.event.image;
-
   }
 
   render() {
@@ -84,7 +83,7 @@ constructor(props) {
 							  </img>
 							</div>
 							<div className="row">
-								  <div className="col-md-6">
+								  <div className="col-md-6" id="booking-col">
 								  	<Booking />
 								  </div>
 								  <div className="col-md-6">
@@ -119,25 +118,73 @@ constructor(props) {
 }
 
 class Booking extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			room: undefined,
+			nameInput: "Please enter your name",
+			emailInput: "Please enter your email address"
+		};
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+
+	handleChange(e) {
+		let key = e.target.id;
+		if (key === "needRoom" || key === "haveRoom") {
+			key = "room";
+		};
+		this.setState({
+			[key]: e.target.value
+		});
+	}
+
+	handleSubmit(e) {
+		let response = this.validateSubmission();
+		if (!response) {
+			let hope;
+			this.state.room === "need" ? hope = "room!" : hope = "flatmate!"
+			response = "Thanks, " + this.state.nameInput + "! We hope you find a " + hope;		
+		};
+		alert(response);
+		console.log(this.state);
+		e.preventDefault();
+	}
+
+	validateSubmission() {
+		let response = "";
+		if (!/(.+)@(.+){2,}\.(.+){2,}/.test(this.state.emailInput)) {
+			response += "Please enter a valid email address. ";
+		}
+		if (this.state.nameInput === "Please enter your name") {
+			response += "Please enter your name. ";
+		}
+		if (!this.state.room) {
+			response += "Please specify whether you need or have a room.";
+		}
+		return response
+	}
+
 	render() {
 		return (
 			<div id="booking">
 				<h4>Reserve your place now</h4>
-				<form>
+				<form onSubmit={this.handleSubmit}>
 					<p className="table-row">
-						<input className="table-cell" type="radio" name="room" id="option1" value="need"></input>
-						<label className="table-cell" htmlFor="option1">I need a room</label>
+						<input onChange={this.handleChange} className="table-cell" type="radio" name="room" id="needRoom" value="need"></input>
+						<label className="table-cell" htmlFor="needRoom">I need a room</label>
 					</p>
 					<p className="table-row">
-						<input className="table-cell" type="radio" name="room" id="option2" value="have"></input>
-						<label className="table-cell" htmlFor="option2">I need a room</label>
+						<input onChange={this.handleChange} className="table-cell" type="radio" name="room" id="haveRoom" value="have"></input>
+						<label className="table-cell" htmlFor="haveRoom">I have a room</label>
 					</p>
 					<hr></hr>
 					<p><strong>Name</strong></p>
-					<input type="text" value="Please enter your name"></input>
+					<input onChange={this.handleChange} type="text" id="nameInput" value={this.state.nameInput}></input>
 					<p><strong>Email</strong></p>
-					<input type="text" value="Please enter your email address"></input>
-					<submit type="submit" value="Book"></submit>
+					<input onChange={this.handleChange} type="text" id="emailInput" value={this.state.emailInput}></input>
+					<br></br>
+					<input type="submit" value="Book"></input>
 
 
 				</form>

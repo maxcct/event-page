@@ -66,6 +66,7 @@ h1 {
 }
 
 #booking {
+  min-height: 540px;
   border: #E5E5E5 solid 1px;
   padding-left: 20px;
   margin-top: 20px;
@@ -81,4 +82,12 @@ form {
 
 .table-cell {
   display: table-cell;
+}
+
+#booking-col {
+  min-height: 570px;
+}
+
+input[type=submit] {
+  float: left;
 }
