@@ -15,7 +15,24 @@ const EIFFEL_TOWER_POSITION = {
   lng: 2.294471
 };
 
-class Map extends Component {
+class Map extends React.Component {
+  constructor() {
+    super();
+    this.panToArcDeTriomphe = this.panToArcDeTriomphe.bind(this);
+  }
+  
+  componentDidMount() {
+    this.map = new window.google.maps.Map(this.refs.map, {
+      center: EIFFEL_TOWER_POSITION,
+      zoom: 16
+    });
+  }
+  
+  panToArcDeTriomphe() {
+    console.log(this)
+    this.map.panTo(ARC_DE_TRIOMPHE_POSITION);
+  }
+  
   render() {
     const mapStyle = {
       width: 500,
@@ -24,10 +41,14 @@ class Map extends Component {
     };
     
     return (
-      <div ref="map" style={mapStyle}>I should be a map!</div>
+      <div>
+        <button onClick={this.panToArcDeTriomphe}>Go to Arc De Triomphe</button>
+        <div ref="map" style={mapStyle}>I should be a map!</div>
+      </div>
     );
   }
 }
+
 
 class App extends Component {
   constructor(props) {
@@ -48,7 +69,6 @@ class App extends Component {
 	  <div className="App">
 		<Header events={this.state.data.events} onClick={this.changeEvent} />
 		<Event event={this.state.event} />
-		<Map />
 	  </div>
 	);
   }
@@ -76,7 +96,12 @@ constructor(props) {
 			  </img>
 			</div>
 			<div className="row">
-			  <br></br>
+			  <div className="col-md-3"></div>
+			  <div className="col-md-3"></div>
+			  <div className="col-md-3">
+				<Map />
+			  </div>
+			  <div className="col-md-3"></div>
 			</div>
 		  </div>
 		  <div className="col-md-3"></div>
