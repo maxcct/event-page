@@ -6,10 +6,6 @@ import data from './json/data.json';
 const imageFolderURL = "https://raw.githubusercontent.com/maxcct/event-page/master/src/img/";
 
 class Map extends React.Component {
-  constructor() {
-    super();
-  }
-  
   componentDidMount() {
   	const position = {
 	  lat: this.props.lat,
@@ -127,6 +123,24 @@ class Booking extends Component {
 		return (
 			<div id="booking">
 				<h4>Reserve your place now</h4>
+				<form>
+					<p className="table-row">
+						<input className="table-cell" type="radio" name="room" id="option1" value="need"></input>
+						<label className="table-cell" htmlFor="option1">I need a room</label>
+					</p>
+					<p className="table-row">
+						<input className="table-cell" type="radio" name="room" id="option2" value="have"></input>
+						<label className="table-cell" htmlFor="option2">I need a room</label>
+					</p>
+					<hr></hr>
+					<p><strong>Name</strong></p>
+					<input type="text" value="Please enter your name"></input>
+					<p><strong>Email</strong></p>
+					<input type="text" value="Please enter your email address"></input>
+					<submit type="submit" value="Book"></submit>
+
+
+				</form>
 			</div>
 		)
 	}
