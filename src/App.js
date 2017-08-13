@@ -81,7 +81,7 @@ constructor(props) {
 								<div className="row event-row" id="image-row" style={this.image}>
 									<VenueInfo event={this.event}/>
 								</div>
-								<div className="row">
+								<div className="row" id="booking-event">
 									  <div className="col-md-6" id="booking-col">
 									  	<Booking event={this.event}/>
 									  </div>
