@@ -22,14 +22,9 @@ class Map extends React.Component {
   }
   
   render() {
-    const mapStyle = {
-      width: this.props.width,
-      height: this.props.height
-    };
-    
     return (
       <div>
-        <div ref="map" style={mapStyle}>I should be a map!</div>
+        <div ref="map" className="map">I should be a map!</div>
       </div>
     );
   }
@@ -56,6 +51,7 @@ class App extends Component {
 	  	<div className="container">
 			<Header events={this.state.data.events} onClick={this.changeEvent} />
 			<Event event={this.state.event} />
+			<div className="row" id="buffer"></div>
 			<div className="row" id="footer"></div>
 		</div>
 	  </div>
@@ -75,8 +71,7 @@ constructor(props) {
   	var chevronPosition = {left: (this.props.event.id * 65 + 50).toString() + "px"};
 	return (
 		<div className="row" id="mid">
-		  	<div className="col-md-3"></div>
-		  	<div className="col-md-6" id="event">
+		  	<div id="event">
 		  		<div id="before" style={chevronPosition}></div>
 							<div className="row event-row">
 							  <h1>{this.props.event.eventName} @ {this.props.event.venueName}</h1>
@@ -111,14 +106,12 @@ constructor(props) {
 								  	<div id="big-map">
 										<Map lat={this.props.event.lat}
 										 	 lng={this.props.event.lng}
-										 	 width={460} height={300}
 										 	 zoom={16}/>
 									</div>
 								  </div>
 							</div>
 		  		<div id="after" style={chevronPosition}></div>
 		  	</div>
-		  	<div className="col-md-3"></div>
 		</div>
 	  );
   }
@@ -137,7 +130,6 @@ class VenueInfo extends Component {
 				<div id="small-map">
 					<Map lat={this.props.event.lat}
 						 lng={this.props.event.lng}
-						 width={300} height={200}
 						 zoom={19}/>
 				</div>
 				<a href={this.props.event.mapLink} id="map-link">Venue's map & directions</a>
@@ -272,28 +264,22 @@ class Header extends Component {
   render() {
 	return (
 	  <div id="header">
-		<div className="row" id="logo">
-		  <div className="col-md-3"></div>
-		  <div className="col-md-2">
+		<div className="row">
+		  <div id="logo">
 			<img src={logo} alt="logo"></img>
 		  </div>
-		  <div className="col-md-7"></div>
 		</div>
 		<div className="row" id="nav">
 		  <div className="row" id="top-nav">
-			<div className="col-md-3"></div>
-			<div className="col-md-6 nav-bar">
+			<div className="nav-bar">
 			  <a className="nav-item">Home</a>
 			  <a className="nav-item">Events</a>
 			</div>
-			<div className="col-md-3"></div>
 		  </div>
 		  <div className="row" id="bottom-nav">
-			<div className="col-md-3"></div>
-			<div className="col-md-6 nav-bar">
+			<div className="nav-bar">
 			  {this.events}
 			</div>
-			<div className="col-md-3"></div>
 		  </div>
 		</div>
 	  </div>
