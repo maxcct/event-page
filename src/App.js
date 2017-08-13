@@ -277,7 +277,7 @@ class Header extends Component {
 			</div>
 		  </div>
 		  <div className="row" id="bottom-nav">
-			<div className="nav-bar">
+			<div className="nav-bar" id="bottom-nav-inner">
 			  {this.events}
 			</div>
 		  </div>

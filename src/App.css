@@ -27,25 +27,22 @@ html, body
 
 #nav {
   width: 100%;
-  margin: 10px 0 0 0;
+  margin-top: 10px;
   font-size: 16px;
   background-color: #F5F5F5;
 }
+
 .nav-bar {
   width: 1000px;
   height: 40px;
   text-align: left;
   padding-top: 9px;
   margin: 0 auto;
+  padding-left: 42px;
 }
 
 .nav-item {
   margin-right: 1em;
-}
-
-#top-nav {
-  margin-right: 0;
-  padding-left: 72px;
 }
 
 #top-nav, #footer {
@@ -61,14 +58,13 @@ html, body
   color: #005480;
 }
 
-#bottom-nav {
+#bottom-nav-inner {
   position: relative;
-  padding-left: 52px;
 }
 
-#bottom-nav:after, #bottom-nav:before {
+#bottom-nav-inner:after, #bottom-nav-inner:before {
   bottom: 100%;
-  left: 820px;
+  left: 128px;
   border: solid transparent;
   content: " ";
   height: 0;
@@ -77,12 +73,12 @@ html, body
   pointer-events: none;
 }
 
-#bottom-nav:after {
+#bottom-nav-inner:after {
   border-bottom-color: #F5F5F5;
   border-width: 9px;
   margin-left: -9px;
 }
-#bottom-nav:before {
+#bottom-nav-inner:before {
   border-bottom-color: #F5F5F5;
   border-width: 10px;
   margin-left: -10px;
@@ -301,12 +297,6 @@ span {
   left: 15px;
   height: 180px;
   width: 100%;
-}
-
-@media screen and (max-width: 2000px) {
-  #logo, #top-nav, #bottom-nav {
-    padding-left: 0;
-  }
 }
 
 @media screen and (max-width: 1000px) {
