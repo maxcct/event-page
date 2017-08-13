@@ -13,13 +13,12 @@ class Map extends React.Component {
 	};
     this.map = new window.google.maps.Map(this.refs.map, {
       center: position,
-      zoom: 16
+      zoom: this.props.zoom
     });
     this.marker = new window.google.maps.Marker({
         position: position,
-        map: this.map,
+        map: this.map
     });
-
   }
   
   render() {
@@ -77,12 +76,24 @@ constructor(props) {
 			  <div className="col-md-3"></div>
 			  <div className="col-md-6" id="event">
 								<div className="row event-row">
-								  <h1>{this.event.name}</h1>
+								  <h1>{this.event.eventName} @ {this.event.venueName}</h1>
 								</div>
 								<div className="row event-row" id="image-row" style={this.image}>
-									<Map lat={this.event.lat}
-										 lng={this.event.lng}
-										 width={300} height={280}/>
+									<div id="venue-info">
+										<h2 id="venue-name">{this.event.venueName}</h2>
+										<div id="date-time">
+											{this.event.date}
+											<br></br>
+											{this.event.time}
+										</div>
+										<div id="small-map">
+											<Map lat={this.event.lat}
+												 lng={this.event.lng}
+												 width={300} height={200}
+												 zoom={19}/>
+										</div>
+										<a href={this.event.mapLink} id="map-link">Venue's map & directions</a>
+									</div>
 								</div>
 								<div className="row">
 									  <div className="col-md-6" id="booking-col">
@@ -111,7 +122,8 @@ constructor(props) {
 									  	<div id="big-map">
 											<Map lat={this.event.lat}
 											 	 lng={this.event.lng}
-											 	 width={460} height={300}/>
+											 	 width={460} height={300}
+											 	 zoom={16}/>
 										</div>
 									  </div>
 								</div>
@@ -190,7 +202,7 @@ class Booking extends Component {
 	render() {
 		return (
 			<div id="booking">
-				<h4>Reserve your place now</h4>
+				<h2>Reserve your place now</h2>
 				<form onSubmit={this.handleSubmit}>
 					<div className="table-row">
 						<p className="table-cell">
