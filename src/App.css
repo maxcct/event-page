@@ -86,7 +86,7 @@ h2 {
   width: 1000px;
 }
 
-#event:after, #event:before {
+#after, #before {
   bottom: 100%;
   left: 4.8%;
   border: solid transparent;
@@ -97,13 +97,13 @@ h2 {
   pointer-events: none;
 }
 
-#event:after {
+#after {
   border-color: rgba(255, 255, 255, 0);
   border-bottom-color: #FFFFFF;
   border-width: 10px;
   margin-left: -10px;
 }
-#event:before {
+#before {
   border-color: rgba(198, 198, 198, 0);
   border-bottom-color: #C6C6C6;
   border-width: 11px;

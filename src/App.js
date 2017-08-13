@@ -69,11 +69,13 @@ constructor(props) {
   }
 
   render() {
+  	var chevronPosition = {left: (this.props.event.id * 65 + 47).toString() + "px"};
 	return (
 		<div>
 			<div className="row" id="mid">
 			  <div className="col-md-3"></div>
 			  <div className="col-md-6" id="event">
+			  <div id="before" style={chevronPosition}></div>
 								<div className="row event-row">
 								  <h1>{this.props.event.eventName} @ {this.props.event.venueName}</h1>
 								</div>
@@ -112,6 +114,7 @@ constructor(props) {
 										</div>
 									  </div>
 								</div>
+			  <div id="after" style={chevronPosition}></div>
 			  </div>
 			  <div className="col-md-3"></div>
 			</div>
