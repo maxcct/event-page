@@ -24,7 +24,7 @@ class Map extends React.Component {
   render() {
     return (
       <div>
-        <div ref="map" className="map">I should be a map!</div>
+        <div ref="map" className="map" id={this.props.mapID}>I should be a map!</div>
       </div>
     );
   }
@@ -68,7 +68,7 @@ constructor(props) {
   }
 
   render() {
-  	var chevronPosition = {left: (this.props.event.id * 65 + 50).toString() + "px"};
+  	var chevronPosition = {left: ((this.props.event.id + 1) * 65).toString() + "px"};
 	return (
 		<div className="row" id="mid">
 		  	<div id="event">
@@ -106,7 +106,7 @@ constructor(props) {
 								  	<div id="big-map">
 										<Map lat={this.props.event.lat}
 										 	 lng={this.props.event.lng}
-										 	 zoom={16}/>
+										 	 zoom={16} mapID="big"/>
 									</div>
 								  </div>
 							</div>
@@ -130,7 +130,7 @@ class VenueInfo extends Component {
 				<div id="small-map">
 					<Map lat={this.props.event.lat}
 						 lng={this.props.event.lng}
-						 zoom={19}/>
+						 zoom={19} mapID="small"/>
 				</div>
 				<a href={this.props.event.mapLink} id="map-link">Venue's map & directions</a>
 			</div>
