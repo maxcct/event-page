@@ -74,7 +74,7 @@ constructor(props) {
 		  	<div id="event">
 		  		<div id="before" style={chevronPosition}></div>
 							<div className="row event-row">
-							  <h1>{this.props.event.eventName} @ {this.props.event.venueName}</h1>
+							  <h1>{this.props.event.eventName}<span> @ {this.props.event.venueName}</span></h1>
 							</div>
 							<div className="row event-row" id="image-row" style={this.image}>
 								<VenueInfo event={this.props.event}/>
@@ -210,7 +210,7 @@ class Booking extends Component {
 						<p className="table-cell">
 							<input onChange={this.handleChange} type="radio" name="room" id="needRoom" value="need"></input>
 							<label htmlFor="needRoom">I need a room
-								<span>{this.state.needRoomAvailable ? "Places available" : "Sorry, there are no places left"}</span>
+								<span className="available">{this.state.needRoomAvailable ? "Places available" : "Sorry, there are no places left"}</span>
 							</label>
 						</p>
 					</div>
@@ -218,7 +218,7 @@ class Booking extends Component {
 						<p className="table-cell">
 							<input onChange={this.handleChange} type="radio" name="room" id="haveRoom" value="have"></input>
 							<label htmlFor="haveRoom">I have a room
-								<span>{this.state.haveRoomAvailable ? "Places available" : "Sorry, there are no places left"}</span>
+								<span className="available">{this.state.haveRoomAvailable ? "Places available" : "Sorry, there are no places left"}</span>
 							</label>
 						</p>
 					</div>
