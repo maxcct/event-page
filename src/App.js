@@ -79,21 +79,7 @@ constructor(props) {
 								  <h1>{this.event.eventName} @ {this.event.venueName}</h1>
 								</div>
 								<div className="row event-row" id="image-row" style={this.image}>
-									<div id="venue-info">
-										<h2 id="venue-name">{this.event.venueName}</h2>
-										<div id="date-time">
-											{this.event.date}
-											<br></br>
-											{this.event.time}
-										</div>
-										<div id="small-map">
-											<Map lat={this.event.lat}
-												 lng={this.event.lng}
-												 width={300} height={200}
-												 zoom={19}/>
-										</div>
-										<a href={this.event.mapLink} id="map-link">Venue's map & directions</a>
-									</div>
+									<VenueInfo event={this.event}/>
 								</div>
 								<div className="row">
 									  <div className="col-md-6" id="booking-col">
@@ -134,6 +120,28 @@ constructor(props) {
 	  </div>
 	  );
   }
+}
+
+class VenueInfo extends Component {
+	render() {
+		return (
+			<div id="venue-info">
+				<h2 id="venue-name">{this.props.event.venueName}</h2>
+				<div id="date-time">
+					{this.props.event.date}
+					<br></br>
+					{this.props.event.time}
+				</div>
+				<div id="small-map">
+					<Map lat={this.props.event.lat}
+						 lng={this.props.event.lng}
+						 width={300} height={200}
+						 zoom={19}/>
+				</div>
+				<a href={this.props.event.mapLink} id="map-link">Venue's map & directions</a>
+			</div>
+		)
+	}
 }
 
 class Booking extends Component {
