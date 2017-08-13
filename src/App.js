@@ -257,7 +257,7 @@ class Header extends Component {
 	this.handleClick = this.handleClick.bind(this);
 	this.events = this.props.events.map((event, i) =>
 	  <a key={i} id={event.id} className="nav-item" onClick={this.handleClick}>
-		Event
+		Events
 	  </a>
 	);
   }
