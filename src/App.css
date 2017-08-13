@@ -365,7 +365,7 @@ label {
   }
 
   input[type=text] {
-    width: 90%;
+    width: 50%;
   }
 
   #event-text {
@@ -419,6 +419,10 @@ label {
 
   #haveRoom {
     margin-left: 40px;
+  }
+
+  input[type=text] {
+    width: 90%;
   }
 
   #small-map {
