@@ -115,7 +115,7 @@ h2 {
 }
 
 #event-text {
-  margin: 35px 50px 0 0;
+  margin: 15px 50px 0 0;
   padding-left: 15px;
 }
 
@@ -124,6 +124,8 @@ h2 {
 }
 
 #big-map {
+  position: absolute;
+  bottom: 0;
   margin-left: -5px;
 }
 
@@ -176,7 +178,6 @@ h2 {
   min-height: 100%;
   border: #E5E5E5 solid 1px;
   padding: 20px;
-  margin-top: 20px;
 }
 
 form {
@@ -191,8 +192,13 @@ form {
   display: table-cell;
 }
 
-#booking-col {
+#booking-col, #event-col {
   height: 100%;
+  margin-top: 20px;
+}
+
+#event-col {
+  position: relative;
 }
 
 .text-input-label {
@@ -201,7 +207,7 @@ form {
 
 input[type=text] {
   width: 85%;
-  padding-left: 10px;
+  padding: 5px 10px;
 }
 
 input[type=submit] {
@@ -238,6 +244,10 @@ span {
   margin-left: 30px;
   color: #14C7F5;
   font-weight: bold;
+}
+
+#privacy {
+  font-size: 13px;
 }
 
 #footer {

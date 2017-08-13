@@ -19,22 +19,13 @@
 			"haveRoomAvailable": 1
 		},
 		{
-			"id": 1,
-			"name": "Untitled",
-			"image": "None",
-			"imageAlt": "N/A"
+			"id": 1
 		},
 		{
-			"id": 2,
-			"name": "Untitled",
-			"image": "None",
-			"imageAlt": "N/A"
+			"id": 2
 		},
 		{
-			"id": 3,
-			"name": "Untitled",
-			"image": "None",
-			"imageAlt": "N/A"
+			"id": 3
 		}
 	]
 }

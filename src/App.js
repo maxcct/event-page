@@ -63,9 +63,8 @@ class App extends Component {
 class Event extends Component {
 constructor(props) {
 	super(props);
-	this.event = this.props.event;
 	this.image = {
-		backgroundImage: "url(" + imageFolderURL + this.event.image + ")"
+		backgroundImage: "url(" + imageFolderURL + this.props.event.image + ")"
 	};
   }
 
@@ -76,38 +75,38 @@ constructor(props) {
 			  <div className="col-md-3"></div>
 			  <div className="col-md-6" id="event">
 								<div className="row event-row">
-								  <h1>{this.event.eventName} @ {this.event.venueName}</h1>
+								  <h1>{this.props.event.eventName} @ {this.props.event.venueName}</h1>
 								</div>
 								<div className="row event-row" id="image-row" style={this.image}>
-									<VenueInfo event={this.event}/>
+									<VenueInfo event={this.props.event}/>
 								</div>
 								<div className="row" id="booking-event">
 									  <div className="col-md-6" id="booking-col">
-									  	<Booking event={this.event}/>
+									  	<Booking event={this.props.event}/>
 									  </div>
-									  <div className="col-md-6">
+									  <div className="col-md-6" id="event-col">
 									  	<div id="event-text">
 										  	<p>
 										  		<strong>Who is this event for?</strong><br></br>
-										  		{this.event.suitability}
+										  		{this.props.event.suitability}
 										  	</p>
 										  	<p>
 										  		<strong>What areas does this event cover?</strong><br></br>
-										  		{this.event.areas}
+										  		{this.props.event.areas}
 										  	</p>
 										  	<p>
 										  		<strong>Venue directions</strong><br></br>
-										  		{this.event.directions}
+										  		{this.props.event.directions}
 										  	</p>
 										  	<p>
 										  		<strong>Nearest subway</strong><br></br>
-										  		{this.event.subway}
+										  		{this.props.event.subway}
 										  	</p>
 										  	<p id="map-label"><strong>Map</strong></p>
 									  	</div>
 									  	<div id="big-map">
-											<Map lat={this.event.lat}
-											 	 lng={this.event.lng}
+											<Map lat={this.props.event.lat}
+											 	 lng={this.props.event.lng}
 											 	 width={460} height={300}
 											 	 zoom={16}/>
 										</div>
@@ -237,10 +236,10 @@ class Booking extends Component {
 					<p>
 						<input onChange={this.handleChange} type="text" id="emailInput" value={this.state.emailInput}></input>
 					</p>
-					<p>
+					<p id="privacy">
 						We won't give your email address to anyone else.
 						<br></br>
-						See our <a>Privacy Policy</a> for more details.
+						See our <a href="https://www.spareroom.com/content/default/privacy-us">Privacy Policy</a> for more details.
 					</p>
 					<hr></hr>
 					<input type="submit" value="Book"></input>
