@@ -1,11 +1,31 @@
-body {
+html, body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
+.App {
   margin-top: 20px;
   color: #5E5E5E;
   font-size: 15px;
 }
 
+.container {
+  width: 100%;
+  padding: 0;
+}
+
+#logo {
+  padding-left: 140px;
+  margin-right: 0;
+}
+
 #nav {
-  margin-top: 10px;
+  width: 100%;
+  margin: 10px 0 0 0;
   font-size: 16px;
   background-color: #F5F5F5;
 }
@@ -20,8 +40,16 @@ body {
   margin-right: 1em;
 }
 
+#top-nav {
+  margin-right: 0;
+}
+
 #top-nav, #footer {
   background-color: #005480;
+}
+
+#top-nav, #bottom-nav {
+  padding-left: 140px;
 }
 
 #top-nav a {
@@ -39,7 +67,7 @@ body {
 
 #bottom-nav:after, #bottom-nav:before {
   bottom: 100%;
-  left: 29.7%;
+  left: 820px;
   border: solid transparent;
   content: " ";
   height: 0;
@@ -84,6 +112,7 @@ h2 {
   background-color: #FFFFFF;
   padding: 20px 30px 30px 30px;
   width: 1000px;
+  margin-left: 100px;
 }
 
 #after, #before {
@@ -168,6 +197,7 @@ h2 {
 
 #mid {
   background-color: #F5F5F5;
+  margin: 0;
 }
 
 #booking-event {
@@ -252,4 +282,5 @@ span {
 
 #footer {
   height: 180px;
+  margin-right: 0;
 }

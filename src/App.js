@@ -53,8 +53,11 @@ class App extends Component {
   render() {
 	return (
 	  <div className="App">
-		<Header events={this.state.data.events} onClick={this.changeEvent} />
-		<Event event={this.state.event} />
+	  	<div className="container">
+			<Header events={this.state.data.events} onClick={this.changeEvent} />
+			<Event event={this.state.event} />
+			<div className="row" id="footer"></div>
+		</div>
 	  </div>
 	);
   }
@@ -69,57 +72,54 @@ constructor(props) {
   }
 
   render() {
-  	var chevronPosition = {left: (this.props.event.id * 65 + 47).toString() + "px"};
+  	var chevronPosition = {left: (this.props.event.id * 65 + 50).toString() + "px"};
 	return (
-		<div>
-			<div className="row" id="mid">
-			  <div className="col-md-3"></div>
-			  <div className="col-md-6" id="event">
-			  <div id="before" style={chevronPosition}></div>
-								<div className="row event-row">
-								  <h1>{this.props.event.eventName} @ {this.props.event.venueName}</h1>
-								</div>
-								<div className="row event-row" id="image-row" style={this.image}>
-									<VenueInfo event={this.props.event}/>
-								</div>
-								<div className="row" id="booking-event">
-									  <div className="col-md-6" id="booking-col">
-									  	<Booking event={this.props.event}/>
-									  </div>
-									  <div className="col-md-6" id="event-col">
-									  	<div id="event-text">
-										  	<p>
-										  		<strong>Who is this event for?</strong><br></br>
-										  		{this.props.event.suitability}
-										  	</p>
-										  	<p>
-										  		<strong>What areas does this event cover?</strong><br></br>
-										  		{this.props.event.areas}
-										  	</p>
-										  	<p>
-										  		<strong>Venue directions</strong><br></br>
-										  		{this.props.event.directions}
-										  	</p>
-										  	<p>
-										  		<strong>Nearest subway</strong><br></br>
-										  		{this.props.event.subway}
-										  	</p>
-										  	<p id="map-label"><strong>Map</strong></p>
-									  	</div>
-									  	<div id="big-map">
-											<Map lat={this.props.event.lat}
-											 	 lng={this.props.event.lng}
-											 	 width={460} height={300}
-											 	 zoom={16}/>
-										</div>
-									  </div>
-								</div>
-			  <div id="after" style={chevronPosition}></div>
-			  </div>
-			  <div className="col-md-3"></div>
-			</div>
-			<div className="row" id="footer"></div>
-	  </div>
+		<div className="row" id="mid">
+		  	<div className="col-md-3"></div>
+		  	<div className="col-md-6" id="event">
+		  		<div id="before" style={chevronPosition}></div>
+							<div className="row event-row">
+							  <h1>{this.props.event.eventName} @ {this.props.event.venueName}</h1>
+							</div>
+							<div className="row event-row" id="image-row" style={this.image}>
+								<VenueInfo event={this.props.event}/>
+							</div>
+							<div className="row" id="booking-event">
+								  <div className="col-md-6" id="booking-col">
+								  	<Booking event={this.props.event}/>
+								  </div>
+								  <div className="col-md-6" id="event-col">
+								  	<div id="event-text">
+									  	<p>
+									  		<strong>Who is this event for?</strong><br></br>
+									  		{this.props.event.suitability}
+									  	</p>
+									  	<p>
+									  		<strong>What areas does this event cover?</strong><br></br>
+									  		{this.props.event.areas}
+									  	</p>
+									  	<p>
+									  		<strong>Venue directions</strong><br></br>
+									  		{this.props.event.directions}
+									  	</p>
+									  	<p>
+									  		<strong>Nearest subway</strong><br></br>
+									  		{this.props.event.subway}
+									  	</p>
+									  	<p id="map-label"><strong>Map</strong></p>
+								  	</div>
+								  	<div id="big-map">
+										<Map lat={this.props.event.lat}
+										 	 lng={this.props.event.lng}
+										 	 width={460} height={300}
+										 	 zoom={16}/>
+									</div>
+								  </div>
+							</div>
+		  		<div id="after" style={chevronPosition}></div>
+		  	</div>
+		  	<div className="col-md-3"></div>
+		</div>
 	  );
   }
 }
@@ -271,8 +271,8 @@ class Header extends Component {
 
   render() {
 	return (
-	  <div>
-		<div className="row">
+	  <div id="header">
+		<div className="row" id="logo">
 		  <div className="col-md-3"></div>
 		  <div className="col-md-2">
 			<img src={logo} alt="logo"></img>
