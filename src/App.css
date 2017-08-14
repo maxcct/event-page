@@ -388,6 +388,10 @@ label {
     margin-top: 10px;
   }
 
+  #bottom-nav {
+    display: none;
+  }
+
   #logo > img {
     height: 50%;
     width: 50%;
