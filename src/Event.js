@@ -15,7 +15,9 @@ export class Event extends Component {
 
 	render() {
 		var adjustment = 0;
-		if (window.innerWidth < 1000) {
+		if (window.innerWidth < 554) {
+			adjustment = -48;
+		} else if (window.innerWidth < 1000) {
 			adjustment = 14;
 		}
 		var chevronPosition = {left: ((this.props.event.id + 1) * 65 - adjustment).toString() + "px"};

@@ -438,9 +438,10 @@ label {
     margin: 0;
     width: 100%;
     height: calc((100vw) / 1.54);
+    max-height: 160px;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
   }
 
   #venue-info {
