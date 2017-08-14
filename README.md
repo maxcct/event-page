@@ -2,11 +2,11 @@
 
 ## Deployment
 
-Node.js module serve must be installed. Use `npm install -g serve` if necessary.
+Node.js module `serve` must be installed. Use `npm install -g serve` if necessary.
 
 Inside the directory containing the build folder, run `serve -s build`.
 
-App should now be running at localhost:5000.
+The app should now be running at localhost:5000.
 
 
 ## Technology
@@ -25,7 +25,10 @@ a personalised altert on submission of the booking form.
 
 The most difficult aspect of this design was implementing the border chevrons that point at
 the nav bar element corresponding with the current page. I used a combination of CSS and some
-JavaScript logic combined with a React-injected style property to arrive at a solution.
+JavaScript logic combined with a React-injected style property to arrive at a solution. At
+present the position of the chevron adjusts to match changes in screen size upon rendering,
+but ideally I would add an event listener to detect window resizing and adjust the chevron
+position using a React state.
 
 The next biggest challenges were getting the footer to stick at the bottom, and getting the
 image to resize in a way that matched the design reference images as closely as possible.
