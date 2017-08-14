@@ -4,11 +4,13 @@
 
 Node.js module `serve` must be installed. Use `npm install -g serve` if necessary.
 
-Clone/download the repo from https://github.com/maxcct/event-page.
+Clone/download the repo from [github.com/maxcct/event-page](https://github.com/maxcct/event-page).
 
 `cd` to the directory containing the build folder, then run `serve -s build`.
 
 The app should now be running at localhost:5000.
+
+Alternatively, [just visit the page](https://maxcct.github.io/event-page).
 
 
 ## Technology
